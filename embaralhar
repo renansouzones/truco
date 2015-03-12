@@ -20,13 +20,10 @@ int main () {
     baralho.push_back(i); //1 2 3 4 5 6 7 8 9
   }
 
-  // using built-in random generator:
   random_shuffle ( baralho.begin(), baralho.end() );
 
-  // using myrandom:
   random_shuffle ( baralho.begin(), baralho.end(), meurandom);
 
-  // print out content:
   cout << "baralho:";
   for (vector<int>::iterator it=baralho.begin(); it!=baralho.end(); ++it)
     cout << ' ' << *it;
