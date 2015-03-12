@@ -1,0 +1,8 @@
+std::list<Carta> listaCartas;
+
+void leituraCartas(char* nomeArquivo){
+	std::ifstream leitorCartas("arquivo.txt");
+	char* linhaLida;
+
+
+}
