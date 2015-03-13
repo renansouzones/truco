@@ -1,8 +1,19 @@
+// Essa função deve estar contida na classe Baralho.
+// Dentro da classe, deve haver uma lista de Cartas
+// que contenha todas as cartas do baralho.
+
+
+
 std::list<Carta> listaCartas;
 
 void leituraCartas(char* nomeArquivo){
 	std::ifstream leitorCartas("arquivo.txt");
-	char* linhaLida;
-
-
+	char *linhaLida = new char;
+	
+	leitorCartas.open(nomeArquivo);
+	for (int i = 0; i < maxCartas; i++) { // maxCartas é o número total de cartas do jogo (40 ou 48)
+	}
 }
+
+arquivo.getline(sizeChar, 4); // stage's width
+	sizeX = atoi(sizeChar);
