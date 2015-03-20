@@ -53,15 +53,49 @@ class Baralho
 {
 private:
 	std::vector<Carta> baralho;
+
 public:
 	Baralho(){};
 	~Baralho(){};
 
-	void ler_baralho(){
-		std::ifstream baralho_txt;
-		baralho_txt.open("baralho.txt");
-		
+	void ler_baralho(bool tira89){
+
+		std::ifstream leitor_cartas;
+		leitor_cartas.open("cartas.txt");
+
+		for(int i = 0; i < 48; i++){
+
+			Carta carta;
+			char *linha_lida = new char;
+			bool carta_elegivel = false;
+
+			leitor_cartas.getline(linha_lida, 4);
+			carta.set_numero(atoi(linha_lida));
+
+			if(carta.get_numero != 8 && carta.get_numero != 9){
+				carta_elegivel = true;
+			} else if(tira89 == false){ carta_elegivel = true; }
+
+			if(carta_elegivel == true){
+
+				leitor_cartas = NULL;
+				leitor_cartas.getline(linha_lida, 4);
+				carta.set_naipe(atoi(linha_lida));
+				leitor_cartas = NULL;
+				leitor_cartas.getline(linha_lida, 4);
+				carta.set_valor(atoi(linha_lida));
+				leitor_cartas = NULL;
+
+				baralho.push_back(carta);
+
+			}
+
+		}
+	
+		leitor_cartas.close();
+
 	}
 	
 	void embaralhar(){ random_shuffle(baralho.begin(), baralho.end()); }
+
 };
