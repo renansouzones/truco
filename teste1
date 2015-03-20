@@ -40,3 +40,28 @@ int main(){
 
 
 //  C) Distribuir três cartas para cada jogador.
+
+
+
+
+#pragma once
+#include <vector>
+#include <algorithm>
+#include <fstream>
+#include "Carta.h"
+class Baralho
+{
+private:
+	std::vector<Carta> baralho;
+public:
+	Baralho(){};
+	~Baralho(){};
+
+	void ler_baralho(){
+		std::ifstream baralho_txt;
+		baralho_txt.open("baralho.txt");
+		
+	}
+	
+	void embaralhar(){ random_shuffle(baralho.begin(), baralho.end()); }
+};
