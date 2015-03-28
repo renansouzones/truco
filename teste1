@@ -1,7 +1,7 @@
 //  1º teste: fazer um sistema de 4 ou 6 jogadores que recebem 3 cartas cada, após elas serem embaralhadas.
 //  Por hora, são consideradas as seguintes classes: Carta, Baralho, Jogador, Time e Controlador (que controlará o jogo).
 //
-//  A) Setar o número de jogadores; (NÃO TESTADO)
+//  A) Setar o número de jogadores; (TESTADO)
 
 Class Controlador {
   private:
@@ -13,22 +13,26 @@ Class Controlador {
 Controlador ctr;
 
 int main(){
-  
-  bool escolha_numero_jogadores = true;
-  while(escolha_numero_jogadores == true) {
-    
-    char numero_jogadores_char[];
-    std::cout << "\n" << "Insira o numero de jogadores" << "\n";
-    std::cin >> numero_jogadores_char;
-  
-    if(numero_jogadores_char[0] != '4' || numero_jogadores_char[0] != '6') {
-      std::cout << "\n" << "Numero invalido. Insira novamente." << "\n";
-    } else {
-      ctr.set_numero_jogadores(atoi(numero_jogadores_char[0]));
-      std::cout << "\n" << "Número de jogadores definido." << "\n";
-      escolha_numero_jogadores = false;
-    }
-  }
+
+	bool escolha_numero_jogadores = true;
+	while (escolha_numero_jogadores == true) {
+
+		char *numero_jogadores_char = new char;
+		std::cout << "\n" << "Insira o numero de jogadores" << "\n";
+		std::cin >> numero_jogadores_char;
+
+		if (numero_jogadores_char[0] != '4' && numero_jogadores_char[0] != '6') {
+			std::cout << "\n" << "Numero invalido. Insira novamente." << "\n";
+		} else {
+			//ctr.set_numero_jogadores(atoi(numero_jogadores_char[0]));
+			std::cout << "\n" << "Numero de jogadores definido." << "\n";
+			escolha_numero_jogadores = false;
+		}
+	}
+
+	getchar();
+	getchar();
+
 }
 
 
