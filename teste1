@@ -3,32 +3,28 @@
 //
 //  A) Setar o número de jogadores; (TESTADO)
 
-Class Controlador {
-  private:
-    int numero_jogadores;
-  public:
-    void set_numero_jogadores(int var){ numero_jogadores = var; }
-}
+#include <iostream>
+#include "Controlador.h"
 
 Controlador ctr;
 
+void set_jogadores(){
+	char *n = new char;
+	std::cout << "\n" << "Insira o numero de jogadores" << "\n";
+	std::cin >> n;
+	if (n[0] != '4' && n[0] != '6'){
+		std::cout << "\n" << "Numero invalido. Insira novamente." << "\n";
+		set_jogadores();
+	} else {
+		std::cout << "\n" << "Numero de jogadores definido." << "\n";
+		ctr.set_numero_jogadores(((int)n[0] - 48)); // 48 serve para compensar códigos ASCII, pois caso contrário o número teria valor 52 ou 54
+	}
+}
+
 int main(){
 
-	bool escolha_numero_jogadores = true;
-	while (escolha_numero_jogadores == true) {
-
-		char *numero_jogadores_char = new char;
-		std::cout << "\n" << "Insira o numero de jogadores" << "\n";
-		std::cin >> numero_jogadores_char;
-
-		if (numero_jogadores_char[0] != '4' && numero_jogadores_char[0] != '6') {
-			std::cout << "\n" << "Numero invalido. Insira novamente." << "\n";
-		} else {
-			//ctr.set_numero_jogadores(atoi(numero_jogadores_char[0]));
-			std::cout << "\n" << "Numero de jogadores definido." << "\n";
-			escolha_numero_jogadores = false;
-		}
-	}
+	set_jogadores();
+	std::cout << "\n" << "O numero de jogadores e " << ctr.get_numero_jogadores() << "\n";
 
 	getchar();
 	getchar();
